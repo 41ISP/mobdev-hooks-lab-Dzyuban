@@ -1,9 +1,11 @@
+import { useState } from "react"
 import BookForm from "./BookForm"
 import BookList from "./BookList"
+import FilterChip from "./FilterChip"
 
 const ShelfScreen = () => {
-      const [books, setBooks] = useState([
-    ])
+      const [books, setBooks] = useState([])
+      const [Filterd, setFilt] = useState(false)
     return (
     <section className="screen active" id="screen-shelf">
       <p className="greeting">Добрый вечер</p>
@@ -19,7 +21,10 @@ const ShelfScreen = () => {
           Добавить на полку
         </button>
       </div> */}
-      <div className="list-toolbar">
+      {/* FILTER==================================================== */}
+      <FilterChip setFilt={setFilt} Filterd={Filterd}/>
+      
+      {/* <div className="list-toolbar">
         <span className="toolbar-title">Книги</span>
         <div className="filter-chip">
           <input type="checkbox" id="filterCheckbox" />
@@ -28,9 +33,9 @@ const ShelfScreen = () => {
             Только непрочитанные
           </label>
         </div>
-      </div>
+      </div> */}
     {/* BOOKLIST=============================================== */}
-      <BookList/>
+      <BookList setBooks={setBooks} Filterd={Filterd} books={books}/>
       {/* <div className="book-list" id="bookList">
         <div className="book-row" data-id={1}>
           <div className="book-cover" style={{ background: "#4f6b52" }}>

@@ -1,9 +1,16 @@
 import BookItem from "./BookItem"
 
-const BookList = () => {
+// притянуть сюда массив
+const BookList = ({books, setBooks}) => {
     return (
     <div className="book-list" id="bookList">
-        <BookItem/>
+      
+      {Filterd ? books.filter(el => !el.done).map((books) => 
+      (<BookItem {...books} setBooks={setBooks}/>))
+    : books.map((books) => 
+    (<BookItem {...books} setBooks={setBooks}/>))} 
+      {/* {books.map((books, i) => <BookItem {...books} key={i} setBooks={setBooks}/>)} */}
+
         {/* <div className="book-row" data-id={1}>
           <div className="book-cover" style={{ background: "#4f6b52" }}>
             К

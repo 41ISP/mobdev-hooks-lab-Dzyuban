@@ -1,11 +1,12 @@
-const BookItem = () => {
+const BookItem = (title, id, done, setBooks) => {
     return (
+      
     <div className="book-row" data-id={1}>
           <div className="book-cover" style={{ background: "#4f6b52" }}>
             К
           </div>
           <div className="book-info">
-            <p className="book-title done">Клара и Солнце</p>
+            <p className="book-title done">{title}</p>
             <div className="book-author">Кадзуо Исигуро</div>
           </div>
           <div className="read-check checked" data-role="toggle">

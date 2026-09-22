@@ -1,33 +1,38 @@
+import { nanoid } from "nanoid"
 import { useState } from "react"
 
-const BookForm = () => {
-  
+const BookForm = ({setBooks}) => {
+
 
   const [bookField, setBooksField] = useState('')
 
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (bookField.trim().length === 0 || taskField.trim().length > 40) return
-        const newTask = {
-            id: nanoid(),
-            title: taskField.trim()
-        }
-        setTasks([...books, newBooks])
-        setTaskField("")
-}
+    if (bookField.trim().length === 0 || bookField.trim().length > 40) return
+    const newBooks = {
+      id: nanoid(),
+      title: bookField.trim()
+    }
+    setBooks((books) => [...books, newBooks])
+    setBooksField("")
+  }
 
-    return (
-    <div className="add-book-row">
+  return (
+    <div className="add-book-row" id="AddBook">
+      <form onSubmit={handleSubmit} className="AddBooks">
         <input
           className="input"
           id="bookInput"
           placeholder="Название книги..."
+          value={bookField}
+          onChange={(e) => setBooksField(e.target.value)}
         />
-        <button onClick className="btn" id="addBtn">
+        <button className="btn" id="addBtn">
           Добавить на полку
         </button>
+      </form>
     </div>
-)
+  )
 }
 export default BookForm 
