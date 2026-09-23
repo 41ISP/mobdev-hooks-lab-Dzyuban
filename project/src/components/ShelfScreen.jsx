@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import BookForm from "./BookForm"
 import BookList from "./BookList"
 import FilterChip from "./FilterChip"
@@ -6,6 +6,7 @@ import FilterChip from "./FilterChip"
 const ShelfScreen = () => {
       const [books, setBooks] = useState([])
       const [Filterd, setFilt] = useState(false)
+      useEffect(() => {console.log(books)}, [books])
     return (
     <section className="screen active" id="screen-shelf">
       <p className="greeting">Добрый вечер</p>
