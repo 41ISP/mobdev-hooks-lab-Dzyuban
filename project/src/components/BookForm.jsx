@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid"
 import { useState } from "react"
 
-const BookForm = ({setBooks}) => {
+const BookForm = ({id, title, setBooks}) => {
 
 
   const [bookField, setBooksField] = useState('')
@@ -12,7 +12,8 @@ const BookForm = ({setBooks}) => {
     if (bookField.trim().length === 0 || bookField.trim().length > 40) return
     const newBooks = {
       id: nanoid(),
-      title: bookField.trim()
+      title: bookField.trim(),
+      done: false
     }
     setBooks((books) => [...books, newBooks])
     setBooksField("")
@@ -35,4 +36,5 @@ const BookForm = ({setBooks}) => {
     </div>
   )
 }
+
 export default BookForm 

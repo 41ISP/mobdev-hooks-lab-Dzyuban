@@ -1,5 +1,6 @@
-const FiltChip = (Filterd, setFilt) => {
-    (
+
+const FiltChip = ({Filterd, setFilt}) => {
+    return    (
         <div className="list-toolbar">
             <span className="toolbar-title">Книги</span>
             <div className="filter-chip">
